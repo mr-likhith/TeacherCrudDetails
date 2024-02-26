@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>home Page</title>
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body class="bdy">
+    <h1>Student Details</h1>
+    
+    <table class="table" border="1">
+    	<thead>
+    		<tr>
+    			<th>ID</th>
+    			<th>Student Name</th>
+    			<th>Gender</th>
+    			<th>Course</th>
+    			<th>Fees</th>
+    			<th>Action</th>
+    		</tr>
+    	</thead>
+    	<tbody>
+    		<tr th:each="student : ${listStudent}">
+    			<td th:text="${student.id}"></td>
+    			<td th:text="${student.name}"></td>
+    			<td th:text="${student.gender}"></td>
+    			<td th:text="${student.course}"></td>
+    			<td th:text="${student.fees}"></td>
+    			<td>
+    				<a th:href="@{'/edit/'+${student.id}}">Edit</a>
+    				<a th:href="@{'/delete/'+${student.id}}" onclick="return confirm('Are you Sure?.')">Delete</a>
+    			</td>
+    		</tr>
+    	</tbody>
+    </table>
+     <h2><a th:href="@{'/addStudent'}" class="add">Add Student</a></h2>
+     <h2><a th:href="@{'/addattendance'}" class="add">Add Attendance</a></h2>
+</body>
+</html>

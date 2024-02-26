@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Attendance Page</title>
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body class="bdy">
+    <h1>Student Attendance</h1>
+    
+    <table class="table" border="1">
+    	<thead>
+    		<tr>
+    			<th>ID</th>
+    			<th>Student Name</th>
+    			<th>Course</th>
+    			<th>Attendance</th>
+    			<th>Action</th>
+    		</tr>
+    	</thead>
+    	<tbody>
+    		<tr th:each="attend : ${listAttendance}">
+    			<td th:text="${attend.id}"></td>
+    			<td th:text="${attend.name}"></td>
+    			<td th:text="${attend.course}"></td>
+    			<td th:text="${attend.attendance}"></td>
+    			<td>
+    				<a th:href="@{'/change/'+${attend.id}}">Edit</a>
+    				<a th:href="@{'/remove/'+${attend.id}}" onclick="return confirm('Are you Sure?.')">Delete</a>
+    			</td>
+    		</tr>
+    	</tbody>
+    </table>
+     <h2><a th:href="@{'/addattendance'}" class="add">Add Attendance</a></h2>
+</body>
+</html>

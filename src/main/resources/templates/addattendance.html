@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Attendance</title>
+    <link rel="stylesheet" href="/css/home.css"> <!-- Assuming the CSS file is located in the "css" directory -->
+</head>
+<body class="container">
+    <div>
+        <table class="container2" border="2">
+            <h2 class="head">Add Attendance</h2>
+            <form action="#" th:action="@{/saved}" th:object="${attend}" method="post">
+                <div align="left">
+                    <tr>
+                        <td>
+                            <input type="hidden" th:field="*{id}" />
+                            Student Name: <input type="text" th:field="*{name}" placeholder="Enter Student Name"/>
+                        </td>
+                    </tr>
+                </div>
+                <div align="left">
+                    <tr>
+                        <td>
+                            Course: <input type="text" th:field="*{course}" placeholder="Enter Course"/>
+                        </td>
+                    </tr>
+                </div>
+                <div align="left">
+                    <tr>
+                        <td>
+                            Attendance: <input type="text" th:field="*{attendance}" placeholder="Enter Attendance"/>
+                        </td>
+                    </tr>
+                </div>
+                <br>
+                <tr>
+                    <td>
+                        <button type="submit">Save</button>
+                    </td>
+                </tr>
+            </form>
+        </table>
+    </div>
+     <h2><a th:href="@{'/viewattendance'}" class="add">view Attendance</a></h2>
+</body>
+</html>
